@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groceries - One Click Online Shopping</title>
+    <style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+
+.groceries-page {
+    background-color: #e8f5e9; /* Light green background */
+}
+
+.groceries-page header {
+    background-color: #2e7d32; /* Dark green header */
+    color: white;
+    padding: 1rem;
+}
+
+.groceries-page nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+.groceries-page nav a.active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.price {
+    font-weight: bold;
+    color: #2e7d32;
+    font-size: 1.2rem;
+    display: block;
+    margin: 0.5rem 0;
+}
+
+button {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #1b5e20;
+}
+
+    </style>
+</head>
+<body class="groceries-page">
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="groceries.html" class="active">Groceries</a>
+            
+        </nav>
+    </header>
+    
+    <main>
+        <h1>One Click Groceries Market</h1>
+        
+        <div class="product-grid">
+            
+            <div class="product-card">
+                <img src="images/groceries/cabbage.jpg.png" alt="Cabbages">
+                <h3>Cabbages</h3>
+                <p> 1 pcs of cabbage 
+                </p>
+                <span class="price">KSH50.00</span>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            
+            <div class="product-card">
+                <img src="images/groceries/kales.jpg.png" alt="kales">
+                <h3>Kales</h3>
+                <p>Grocery kales@ksh10.00 per kg</p>
+                <span class="price">KSH10.00</span>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            
+            
+            <div class="product-card">
+                <img src="images/groceries/carrot.jpg.png" alt="carrots">
+                <h3>Carrots</h3>
+                <p>6 pcs of carrots @ksh30.00</p>
+                <span class="price">KSH30.00</span>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+
+        
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 One Click Store. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+          button.addEventListener('click', function () {
+              // Redirect to the cart page
+              window.location.href = 'cart.html';
+          });
+      });
+  </script>
+  <script>
+    // Function to add product to cart
+    function addToCart(product) {
+        // Retrieve existing cart data from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Check if the product already exists in the cart
+        const existingProduct = cart.find(item => item.name === product.name);
+        if (existingProduct) {
+            existingProduct.quantity += 1; // Increment quantity if product exists
+        } else {
+            cart.push(product); // Add new product to the cart
+        }
+
+        // Save updated cart back to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Redirect to cart page
+        window.location.href = 'cart.html';
+    }
+
+    // Add event listeners to "Add to Cart" buttons
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const productCard = this.closest('.product-card');
+            const product = {
+                name: productCard.querySelector('h3').textContent,
+                price: parseFloat(productCard.querySelector('.price').textContent.replace('KSH', '').replace(',', '')),
+                quantity: 1
+            };
+            addToCart(product);
+        });
+    });
+</script>
+</body>
+</html>

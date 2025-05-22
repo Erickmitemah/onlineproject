@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Order</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #4CAF50; /* Green background */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .order-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2E7D32;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .order-summary {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2E7D32;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        .payment-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .payment-option {
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .payment-option input {
+            margin-right: 8px;
+        }
+        
+        .complete-order-btn {
+            background-color: #2E7D32;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .complete-order-btn:hover {
+            background-color: #1B5E20;
+        }
+        
+        @media (max-width: 600px) {
+            .order-container {
+                padding: 20px;
+            }
+            
+            .payment-options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="order-container">
+        <h1>Complete Your Order</h1>
+        
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <p id="cart-items-count">0 items in cart</p>
+            <p><strong>Total: KSH<span id="cart-total-price">0.00</span></strong></p>
+        </div>
+        
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
+            </div>
+            
+            <div class="form-group">
+                <label for="deliveryAddress">Delivery Address</label>
+                <textarea id="deliveryAddress" name="deliveryAddress" rows="3" required placeholder="123 Main St, City, Country"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="+254700000000">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label>Payment Method</label>
+                <div class="payment-options">
+                    <div class="payment-option">
+                        <input type="radio" id="creditCard" name="paymentMethod" value="credit" checked>
+                        <label for="creditCard">Credit Card</label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="debitCard" name="paymentMethod" value="debit">
+                        <label for="debitCard">Debit Card</label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="mpesa" name="paymentMethod" value="mpesa">
+                        <label for="mpesa">M-Pesa</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="complete-order-btn">Complete Order</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to display cart summary
+        function displayCartSummary() {
+            const cartItemsCountElement = document.getElementById('cart-items-count');
+            const cartTotalPriceElement = document.getElementById('cart-total-price');
+
+            // Retrieve cart data from localStorage
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            let totalItems = 0;
+            let totalPrice = 0;
+
+            // Calculate total items and total price
+            cart.forEach(item => {
+                totalItems += item.quantity;
+                totalPrice += item.price * item.quantity;
+            });
+
+            // Update the order summary
+            cartItemsCountElement.textContent = `${totalItems} items in cart`;
+            cartTotalPriceElement.textContent = totalPrice.toFixed(2);
+        }
+
+        // Call displayCartSummary on page load
+        document.addEventListener('DOMContentLoaded', displayCartSummary);
+
+        // Handle form submission
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Order submitted successfully! Thank you for your purchase.');
+            // Clear the cart after order submission
+            localStorage.removeItem('cart');
+            window.location.href = 'index.html'; // Redirect to the homepage
+        });
+    </script>
+</body>
+</html>

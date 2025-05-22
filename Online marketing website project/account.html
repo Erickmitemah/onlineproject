@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - E-commerce Website</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #4CAF50; /* Green background */
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .account-container {
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #2E7D32;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2E7D32;
+        }
+        
+        input[type="text"],
+        input[type="tel"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        .image-preview {
+            width: 150px;
+            height: 150px;
+            background-color: #f0f0f0;
+            border: 2px dashed #ccc;
+            border-radius: 50%;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #388E3C;
+        }
+        
+        .required:after {
+            content: " *";
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="account-container">
+        <h1>My Account</h1>
+        <form id="accountForm">
+            <div class="form-group">
+                <label for="name" class="required">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone" class="required">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="residence" class="required">Place of Residence</label>
+                <input type="text" id="residence" name="residence" placeholder="Enter your city and country" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="avatar">Cartoon Image (Avatar)</label>
+                <input type="file" id="avatar" name="avatar" accept="image/*">
+                <div class="image-preview" id="imagePreview">
+                    <span>No image selected</span>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Save Profile</button>
+        </form>
+    </div>
+
+    <script>
+        // Image preview functionality
+        const avatarInput = document.getElementById('avatar');
+        const imagePreview = document.getElementById('imagePreview');
+        
+        avatarInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.addEventListener('load', function() {
+                    imagePreview.innerHTML = '';
+                    const img = document.createElement('img');
+                    img.src = this.result;
+                    imagePreview.appendChild(img);
+                });
+                
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.innerHTML = '<span>No image selected</span>';
+            }
+        });
+    </script>
+</body>
+</html>
+

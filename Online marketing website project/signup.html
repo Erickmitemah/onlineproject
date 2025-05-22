@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - One Click Online Shopping</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #2e8b57; /* Green background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .signup-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .logo img {
+            width: 150px;
+            height: auto;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #2e8b57;
+        }
+        
+        .terms-conditions {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+        
+        .terms-conditions h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .terms-conditions p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        
+        .agree-terms {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .agree-terms input {
+            margin-right: 10px;
+        }
+        
+        .signup-button {
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .signup-button:hover {
+            background-color: #26734a;
+        }
+        
+        .login-link {
+            margin-top: 20px;
+            text-align: center;
+            color: #555;
+        }
+        
+        .login-link a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="logo">
+            <!-- Replace with your actual logo -->
+            <img src="https://via.placeholder.com/150x60?text=ECOMMERCE+LOGO" alt="One Click Online Shopping">
+        </div>
+        
+        <h1>Create Your Account</h1>
+        
+        <form action="login.html">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last_name" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm_password" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="">Select Country</option>
+                    <option value="KE">Kenya</option>
+                    <option value="TZ">Tanzania</option>
+                    <option value="UG">Uganda</option>
+                    
+                </select>
+            </div>
+            
+            <div class="terms-conditions">
+                <h3>Terms & Conditions</h3>
+                <p>By creating an account, you agree to our Terms of Service and Privacy Policy. We may send you account-related emails.</p>
+                <p>Your personal data will be used to process your orders, support your experience throughout this website, and for other purposes described in our privacy policy.</p>
+                <p>You must be at least 18 years old to create an account and make purchases on our platform.</p>
+                <p>We reserve the right to refuse service to anyone for any reason at any time.</p>
+            </div>
+            
+            <div class="agree-terms">
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">I agree to the terms and conditions</label>
+            </div>
+            
+            <button type="submit" class="signup-button">Create Account</button>
+        </form>
+        
+        <div class="login-link">
+            Already have an account? <a href="/login.html">Log in</a>
+        </div>
+    </div>
+    <script>
+        // Function to validate the password and confirm password fields
+        function validatePassword(event) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+    
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                event.preventDefault(); // Prevent form submission
+                alert('Passwords do not match. Please try again.');
+            }
+        }
+    
+        // Add event listener to the form
+        document.querySelector('form').addEventListener('submit', validatePassword);
+    </script>
+
+</body>
+</html>

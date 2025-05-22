@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Click Shopping - Your Online Shopping Destination</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #2e8b57; /* Green background */
+            color: #fff;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .search-bar {
+            display: flex;
+            width: 40%;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .search-bar button {
+            padding: 10px 15px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .user-actions {
+            display: flex;
+        }
+        
+        .user-actions button {
+            margin-left: 15px;
+            padding: 8px 15px;
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .user-actions button:hover {
+            background-color: white;
+            color: #2e8b57;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            padding: 12px 30px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+        }
+        
+        .categories {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 0 5%;
+            border-radius: 8px;
+        }
+        
+        .category {
+            margin: 0 15px;
+            text-align: center;
+        }
+        
+        .category-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">One Click Online Shopping</div>
+        
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Deals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products...">
+            <button>Search</button>
+        </div>
+        
+        <div class="user-actions">
+            <a href="account.html">
+            <button><i class="account-icon">👤</i> Account</button>
+            </a>
+            <a href="cart.html">
+            <button><i class="cart-icon">🛒</i> Cart </button>
+            </a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>Welcome to One Click Shopping</h1>
+        <p>Discover amazing products and cheap price. Shop now and enjoy fast delivery.</p>
+        <button class="cta-button">Shop Now</button>
+    </section>
+    
+    <section class="categories">
+        <div class="category">
+            <div class="category-icon">📱</div>
+            <div></div><a href="electronics.html" class="electronics-button">Electronics</a>
+
+        </div>
+        <div class="category">
+            <div class="category-icon">👕</div>
+            <div></div><a href="fashion.html" class="fashion-button">Fashion</a>
+        </div>
+        <div class="category">
+            <div class="category-icon">🏠</div>
+            <div></div><a href="home.html" class="home-button">Home</a>
+        </div>
+        <div class="category">
+            <div class="category-icon">🛒</div>
+            <div></div><a href="groceries.html" class="groceries-button">Groceries</a>
+        </div>
+        <div class="category">
+            <div class="category-icon">🎮</div>
+            <div></div><a href="games.html" class="games-button">Games</a>
+        </div>
+    </section>
+    
+</body>
+</html>
